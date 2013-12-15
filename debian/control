@@ -1,0 +1,12 @@
+Source: ros-hydro-rtt-rosops
+Section: misc
+Priority: extra
+Maintainer: jbohren <jbohren@todo.todo>
+Build-Depends: debhelper (>= 7.0.50~), ros-hydro-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-hydro-rtt-rosops
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Description: The rtt_rosops package
