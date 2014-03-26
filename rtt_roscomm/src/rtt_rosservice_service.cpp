@@ -3,8 +3,8 @@
 #include <rtt/RTT.hpp>
 #include <rtt/plugin/ServicePlugin.hpp>
 
-#include <rtt_rosservice/rtt_rosservice_registry_service.h>
-#include <rtt_rosservice/rtt_rosservice_proxy.h>
+#include <rtt_roscomm/rtt_rosservice_registry_service.h>
+#include <rtt_roscomm/rtt_rosservice_proxy.h>
 
 using namespace RTT;
 using namespace std;
@@ -51,7 +51,7 @@ public:
     }
 
     // Iterate through the tokens except for the last one (the operation name)
-    RTT::ServiceRequester *required = this->getOwner()->requires();
+    RTT::ServiceRequester::shared_ptr required = this->getOwner()->requires();
     for(std::vector<std::string>::iterator it = rtt_uri_tokens.begin();
         it+1 != rtt_uri_tokens.end();
         ++it)
@@ -161,6 +161,5 @@ public:
   std::map<std::string, ROSServiceServerProxyBase*> server_proxies_;
   std::map<std::string, ROSServiceClientProxyBase*> client_proxies_;
 };
-
 
 ORO_SERVICE_NAMED_PLUGIN(ROSServiceService, "rosservice")
