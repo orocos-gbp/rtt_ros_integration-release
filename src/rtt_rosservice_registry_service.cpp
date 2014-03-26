@@ -3,8 +3,8 @@
 #include <rtt/plugin/ServicePlugin.hpp>
 #include <rtt/internal/GlobalService.hpp>
 
-#include <rtt_rosservice/rtt_rosservice_registry_service.h>
-#include <rtt_rosservice/rtt_rosservice_proxy.h>
+#include <rtt_roscomm/rtt_rosservice_registry_service.h>
+#include <rtt_roscomm/rtt_rosservice_proxy.h>
 
 ROSServiceRegistryServicePtr ROSServiceRegistryService::s_instance_;
 
@@ -29,6 +29,7 @@ ROSServiceRegistryService::ROSServiceRegistryService(RTT::TaskContext* owner)
   this->addOperation("registerServiceFactory", &ROSServiceRegistryService::registerServiceFactory, this, RTT::ClientThread);
   this->addOperation("hasServiceFactory", &ROSServiceRegistryService::hasServiceFactory, this, RTT::ClientThread);
   this->addOperation("getServiceFactory", &ROSServiceRegistryService::getServiceFactory, this, RTT::ClientThread);
+  this->addOperation("listSrvs", &ROSServiceRegistryService::listSrvs, this, RTT::ClientThread);
 }
 
 /** \brief Register a ROS service proxy factory
@@ -40,6 +41,7 @@ bool ROSServiceRegistryService::registerServiceFactory(ROSServiceProxyFactoryBas
 {
   RTT::os::MutexLock lock(factory_lock_);
   if(factory == NULL) {
+    RTT::log(RTT::Error) << "Failed to register ROS service factory: NULL pointer given." << RTT::endlog();
     return false;
   }
 
@@ -53,6 +55,8 @@ bool ROSServiceRegistryService::registerServiceFactory(ROSServiceProxyFactoryBas
     // Reset the existing factory
     factories_[ros_service_type].reset(factory);
   }
+
+  RTT::log(RTT::Info) << "Successfully registered ROS service factory for \"" << ros_service_type << "\"." << RTT::endlog();
 
   return true;
 }
@@ -75,6 +79,19 @@ ROSServiceProxyFactoryBase* ROSServiceRegistryService::getServiceFactory(const s
   return NULL;
 }
 
+void ROSServiceRegistryService::listSrvs()
+{
+  RTT::os::MutexLock lock(factory_lock_);
+
+  RTT::log(RTT::Info) << "Available ROS .srv types:" << RTT::endlog();
+  for(std::map<std::string, boost::shared_ptr<ROSServiceProxyFactoryBase> >::const_iterator it = factories_.begin();
+      it != factories_.end();
+      ++it)
+  {
+    RTT::log(RTT::Info) << " -- " << it->first << RTT::endlog();
+  }
+}
+
 std::map<std::string, boost::shared_ptr<ROSServiceProxyFactoryBase> > ROSServiceRegistryService::factories_;
 RTT::os::MutexRecursive ROSServiceRegistryService::factory_lock_;
 
@@ -86,6 +103,7 @@ void loadROSServiceRegistryService()
 using namespace RTT;
 extern "C" {
   bool loadRTTPlugin(RTT::TaskContext* c){
+    if (c != 0) return false;
     loadROSServiceRegistryService();
     return true;
   }
