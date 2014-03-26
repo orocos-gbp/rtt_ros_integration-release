@@ -46,8 +46,8 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 
-#ifndef _ROS_MSG_TRANSPORTER_HPP_
-#define _ROS_MSG_TRANSPORTER_HPP_
+#ifndef __RTT_ROSCOMM_ROS_MSG_TRANSPORTER_HPP_
+#define __RTT_ROSCOMM_ROS_MSG_TRANSPORTER_HPP_
 
 #include <rtt/types/TypeTransporter.hpp>
 #include <rtt/Port.hpp>
@@ -55,15 +55,13 @@
 #include <rtt/internal/ConnFactory.hpp>
 #include <ros/ros.h>
 
+#include <rtt_roscomm/rtt_rostopic_ros_publish_activity.hpp>
 
-#include <rtt_rostopic/ros_publish_activity.hpp>
-
-namespace ros_integration {
+namespace rtt_roscomm {
 
   using namespace RTT;
   /**
    * A ChannelElement implementation to publish data over a ros topic
-   * 
    */
   template<typename T>
   class RosPubChannelElement: public base::ChannelElement<T>,public RosPublisher
@@ -71,6 +69,7 @@ namespace ros_integration {
     char hostname[1024];
     std::string topicname;
     ros::NodeHandle ros_node;
+    ros::NodeHandle ros_node_private;
     ros::Publisher ros_pub;
       //! We must cache the RosPublishActivity object.
     RosPublishActivity::shared_ptr act;
@@ -89,7 +88,9 @@ namespace ros_integration {
      * 
      * @return ChannelElement that will publish data to topics
      */
-    RosPubChannelElement(base::PortInterface* port,const ConnPolicy& policy)
+    RosPubChannelElement(base::PortInterface* port,const ConnPolicy& policy):
+      ros_node(),
+      ros_node_private("~")
     {
       if ( policy.name_id.empty() ){
         std::stringstream namestr;
@@ -112,7 +113,12 @@ namespace ros_integration {
         log(Debug)<<"Creating ROS publisher for port "<<port->getName()<<" on topic "<<policy.name_id<<endlog();
       }
 
-      ros_pub = ros_node.advertise<T>(policy.name_id, policy.size > 0 ? policy.size : 1, policy.init); // minimum 1
+      // Handle private names
+      if(topicname.length() > 1 && topicname.at(0) == '~') {
+        ros_pub = ros_node_private.advertise<T>(policy.name_id.substr(1), policy.size > 0 ? policy.size : 1, policy.init); // minimum 1
+      } else {
+        ros_pub = ros_node.advertise<T>(policy.name_id, policy.size > 0 ? policy.size : 1, policy.init); // minimum 1
+      }
       act = RosPublishActivity::Instance();
       act->addPublisher( this );
     }
@@ -171,11 +177,15 @@ namespace ros_integration {
     
   };
 
+  /**
+   * A ChannelElement implementation to subscribe to data over a ros topic
+   */
   template<typename T>
   class RosSubChannelElement: public base::ChannelElement<T>
   {
     std::string topicname;
     ros::NodeHandle ros_node;
+    ros::NodeHandle ros_node_private;
     ros::Subscriber ros_sub;
     
   public:
@@ -188,7 +198,9 @@ namespace ros_integration {
      * 
      * @return ChannelElement that will publish data to topics
      */
-    RosSubChannelElement(base::PortInterface* port, const ConnPolicy& policy)
+    RosSubChannelElement(base::PortInterface* port, const ConnPolicy& policy) :
+      ros_node(),
+      ros_node_private("~")
     {
       topicname=policy.name_id;
       Logger::In in(topicname);
@@ -197,7 +209,11 @@ namespace ros_integration {
       } else {
         log(Debug)<<"Creating ROS subscriber for port "<<port->getName()<<" on topic "<<policy.name_id<<endlog();
       }
-      ros_sub=ros_node.subscribe(policy.name_id,policy.size,&RosSubChannelElement::newData,this);
+      if(topicname.length() > 1 && topicname.at(0) == '~') {
+        ros_sub = ros_node_private.subscribe(policy.name_id.substr(1),policy.size,&RosSubChannelElement::newData,this);
+      } else {
+        ros_sub = ros_node.subscribe(policy.name_id,policy.size,&RosSubChannelElement::newData,this);
+      }
       this->ref();
     }
 
@@ -221,28 +237,29 @@ namespace ros_integration {
     }
   };
 
-    template <class T>
-    class RosMsgTransporter : public RTT::types::TypeTransporter{
-        virtual base::ChannelElementBase::shared_ptr createStream (base::PortInterface *port, const ConnPolicy &policy, bool is_sender) const{
-            base::ChannelElementBase::shared_ptr buf = internal::ConnFactory::buildDataStorage<T>(policy);
-            base::ChannelElementBase::shared_ptr tmp;
-            if(is_sender){
-                tmp = base::ChannelElementBase::shared_ptr(new RosPubChannelElement<T>(port,policy));
-                if (policy.type == RTT::ConnPolicy::UNBUFFERED){
-                  log(Debug) << "Creating unbuffered publisher connection for port " << port->getName() << ". This may not be real-time safe!" << endlog();
-                  return tmp;
-                }
-                if (!buf) return base::ChannelElementBase::shared_ptr();
-                buf->setOutput(tmp);
-                return buf;
-            }
-            else {
-                if (!buf) return base::ChannelElementBase::shared_ptr();
-                tmp = new RosSubChannelElement<T>(port,policy);
-                tmp->setOutput(buf);
-                return tmp;
-            }
+  template <class T>
+  class RosMsgTransporter : public RTT::types::TypeTransporter
+  {
+    virtual base::ChannelElementBase::shared_ptr createStream (base::PortInterface *port, const ConnPolicy &policy, bool is_sender) const{
+      base::ChannelElementBase::shared_ptr buf = internal::ConnFactory::buildDataStorage<T>(policy);
+      base::ChannelElementBase::shared_ptr tmp;
+      if(is_sender){
+        tmp = base::ChannelElementBase::shared_ptr(new RosPubChannelElement<T>(port,policy));
+        if (policy.type == RTT::ConnPolicy::UNBUFFERED){
+          log(Debug) << "Creating unbuffered publisher connection for port " << port->getName() << ". This may not be real-time safe!" << endlog();
+          return tmp;
         }
-    };
+        if (!buf) return base::ChannelElementBase::shared_ptr();
+        buf->setOutput(tmp);
+        return buf;
+      }
+      else {
+        if (!buf) return base::ChannelElementBase::shared_ptr();
+        tmp = new RosSubChannelElement<T>(port,policy);
+        tmp->setOutput(buf);
+        return tmp;
+      }
+    }
+  };
 } 
 #endif
