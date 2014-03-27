@@ -1,0 +1,12 @@
+Source: ros-hydro-rtt-rosparam
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 7.0.50~), libeigen3-dev, ros-hydro-catkin, ros-hydro-cmake-modules, ros-hydro-roscpp, ros-hydro-rtt-ros
+Homepage: http://ros.org/wiki/rtt_rosparam
+Standards-Version: 3.9.2
+
+Package: ros-hydro-rtt-rosparam
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-roscpp, ros-hydro-rtt-ros
+Description: The rtt_rosparam package
