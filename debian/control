@@ -1,0 +1,12 @@
+Source: ros-hydro-rtt-actionlib
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-hydro-actionlib, ros-hydro-actionlib-msgs, ros-hydro-catkin, ros-hydro-roscpp, ros-hydro-rtt-actionlib-msgs, ros-hydro-rtt-ros, ros-hydro-rtt-rosclock, ros-hydro-rtt-roscomm
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-hydro-rtt-actionlib
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-actionlib, ros-hydro-actionlib-msgs, ros-hydro-roscpp, ros-hydro-rtt-actionlib-msgs, ros-hydro-rtt-ros, ros-hydro-rtt-rosclock, ros-hydro-rtt-roscomm
+Description: The rtt_actionlib package
