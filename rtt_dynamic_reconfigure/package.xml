@@ -1,11 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>rtt_roscomm</name>
+  <name>rtt_dynamic_reconfigure</name>
   <version>2.7.0</version>
-  <description>
-    rtt_roscomm provides the necessary template files and cmake macros for
-    automatic rtt typekit and transport generation from ROS msg files
-  </description>
+  <description>The rtt_dynamic_reconfigure package</description>
   <maintainer email="orocos-dev@lists.mech.kuleuven.be">Orocos Developers</maintainer>
 
   <license>BSD</license>
@@ -13,23 +10,20 @@
   <url type="website">http://ros.org/wiki/rtt_ros_integration</url>
   <url type="bugtracker">https://github.com/orocos/rtt_ros_integration/issues</url>
 
-  <author>Ruben Smits</author>
-  <author>Jonathan Bohren</author>
+  <author>Johannes Meyer</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>rtt_ros</build_depend>
-  <build_depend>rtt_rospack</build_depend>
-  <build_depend>rtt_rosnode</build_depend>
   <build_depend>roscpp</build_depend>
-  <build_depend>genmsg</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
 
   <run_depend>rtt_ros</run_depend>
-  <run_depend>rtt_rospack</run_depend>
-  <run_depend>rtt_rosnode</run_depend>
   <run_depend>roscpp</run_depend>
-  <run_depend>genmsg</run_depend>
-  
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>rtt_rosnode</run_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
   <export>
     <rtt_ros>
       <plugin_depend>rtt_rosnode</plugin_depend>
