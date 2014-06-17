@@ -1,3 +1,49 @@
+## /tmp/rtt_ros_integration-release (hydro) - 2.7.0-3
+
+The packages in the `/tmp/rtt_ros_integration-release` repository were released into the `hydro` distro by running `/usr/bin/bloom-release --track hydro --rosdistro hydro --edit /tmp/rtt_ros_integration-release` on `Tue, 17 Jun 2014 20:47:38 -0000`
+
+These packages were released:
+- `rtt_actionlib`
+- `rtt_actionlib_msgs`
+- `rtt_common_msgs`
+- `rtt_diagnostic_msgs`
+- `rtt_dynamic_reconfigure`
+- `rtt_geometry_msgs`
+- `rtt_kdl_conversions`
+- `rtt_nav_msgs`
+- `rtt_ros`
+- `rtt_ros_comm`
+- `rtt_ros_integration`
+- `rtt_ros_msgs`
+- `rtt_rosclock`
+- `rtt_roscomm`
+- `rtt_rosdeployment`
+- `rtt_rosgraph_msgs`
+- `rtt_rosnode`
+- `rtt_rospack`
+- `rtt_rosparam`
+- `rtt_sensor_msgs`
+- `rtt_shape_msgs`
+- `rtt_std_msgs`
+- `rtt_std_srvs`
+- `rtt_stereo_msgs`
+- `rtt_tf`
+- `rtt_trajectory_msgs`
+- `rtt_visualization_msgs`
+
+Version of package(s) in repository `/tmp/rtt_ros_integration-release`:
+- rosdistro version: `null`
+- old version: `2.7.0-2`
+- new version: `2.7.0-3`
+
+Versions of tools used:
+- bloom version: `0.5.10`
+- catkin_pkg version: `0.2.2`
+- rosdep version: `0.10.27`
+- rosdistro version: `0.3.5`
+- vcstools version: `0.1.35`
+
+
 ## rtt_ros_integration (hydro) - 2.7.0-2
 
 User `meyer@fliegtfix` released the packages in the `rtt_ros_integration` repository into the `hydro` distro by running `/usr/bin/bloom-release --track hydro --rosdistro hydro rtt_ros_integration` on `Sat, 29 Mar 2014 15:39:43 -0000`
