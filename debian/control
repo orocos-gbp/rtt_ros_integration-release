@@ -1,0 +1,12 @@
+Source: ros-hydro-rtt-common-msgs
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-hydro-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-hydro-rtt-common-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-rtt-actionlib-msgs, ros-hydro-rtt-diagnostic-msgs, ros-hydro-rtt-geometry-msgs, ros-hydro-rtt-nav-msgs, ros-hydro-rtt-sensor-msgs, ros-hydro-rtt-shape-msgs, ros-hydro-rtt-stereo-msgs, ros-hydro-rtt-trajectory-msgs, ros-hydro-rtt-visualization-msgs
+Description: The rtt_common_msgs package
