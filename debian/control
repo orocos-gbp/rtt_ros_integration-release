@@ -1,0 +1,12 @@
+Source: ros-hydro-rtt-ros-integration
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-hydro-catkin
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-hydro-rtt-ros-integration
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-rtt-actionlib, ros-hydro-rtt-dynamic-reconfigure, ros-hydro-rtt-ros, ros-hydro-rtt-ros-msgs, ros-hydro-rtt-rosclock, ros-hydro-rtt-roscomm, ros-hydro-rtt-rosdeployment, ros-hydro-rtt-rosnode, ros-hydro-rtt-rospack, ros-hydro-rtt-rosparam, ros-hydro-rtt-tf
+Description: This stack contains all software necessary to build systems using both Orocos and ROS infrastructures
