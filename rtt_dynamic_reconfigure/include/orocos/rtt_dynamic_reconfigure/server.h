@@ -44,6 +44,7 @@
 #include <rtt/OperationCaller.hpp>
 
 #include <rtt/internal/DataSources.hpp>
+#include <rtt/internal/GlobalEngine.hpp>
 
 #include <ros/ros.h>
 
@@ -530,6 +531,10 @@ private:
             notify_callback_ = getOwner()->provides()->getLocalOperation("notifyPropertiesUpdate");
         }
 
+        // update_callback_ and notify_callback_ are called from the ROS spinner thread -> set GlobalEngine as caller engine
+        update_callback_.setCaller(RTT::internal::GlobalEngine::Instance());
+        notify_callback_.setCaller(RTT::internal::GlobalEngine::Instance());
+
         // refresh once
         refresh();
     }
@@ -595,9 +600,11 @@ bool setProperty(const std::string &name, RTT::PropertyBag &bag, ValueType &valu
         RTT::Property<T> *prop = bag.getPropertyType<T>(name);
         if (!prop) {
             RTT::log(RTT::Error) << "Could not assign property '" << name << "': Property exists with a different type." << RTT::endlog();
-        } else {
-            prop->set() = value;
+            return false;
         }
+
+        prop->set() = value;
+
     } else {
         if (boost::is_same<T,ValueType>::value) {
             bag.addProperty(name, value);
@@ -605,6 +612,8 @@ bool setProperty(const std::string &name, RTT::PropertyBag &bag, ValueType &valu
             bag.ownProperty(new RTT::Property<T>(name, std::string(), value));
         }
     }
+
+    return true;
 }
 
 /**
@@ -623,16 +632,14 @@ bool getProperty(const std::string &name, const RTT::PropertyBag &bag, ValueType
     RTT::Property<T> *prop = bag.getPropertyType<T>(name);
     if (!prop) {
         RTT::log(RTT::Error) << "Could not get property '" << name << "': No such property in the bag." << RTT::endlog();
-    } else {
-        value = prop->rvalue();
+        return false;
     }
+
+    value = prop->rvalue();
+    return true;
 }
 
 } // namespace rtt_dynamic_reconfigure
-
-#include <rtt/plugin/ServicePlugin.hpp>
-//#define RTT_DYNAMIC_RECONFIGURE_SERVICE_PLUGIN(CONFIG, NAME) \
-//    ORO_SERVICE_NAMED_PLUGIN(rtt_dynamic_reconfigure::Server<CONFIG>, NAME)
 
 #define RTT_DYNAMIC_RECONFIGURE_SERVICE_PLUGIN(CONFIG, NAME) \
     extern "C" {\

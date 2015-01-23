@@ -3,9 +3,15 @@ project(rtt_dynamic_reconfigure)
 
 find_package(catkin REQUIRED COMPONENTS rtt_ros roscpp dynamic_reconfigure)
 
+catkin_package(
+  INCLUDE_DIRS include/
+  CATKIN_DEPENDS rtt_ros roscpp dynamic_reconfigure
+)
+
 include_directories(
-  include/orocos
+  BEFORE
   ${catkin_INCLUDE_DIRS}
+  include/orocos
 )
 
 orocos_library(rtt_dynamic_reconfigure src/auto_config.cpp)
@@ -20,6 +26,6 @@ install(
 )
 
 orocos_generate_package(
-  DEPENDS roscpp actionlib dynamic_reconfigure
+  DEPENDS roscpp dynamic_reconfigure
   DEPENDS_TARGETS rtt_ros
 )
