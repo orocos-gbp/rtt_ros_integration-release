@@ -1,3 +1,4 @@
+!!python/unicode 'release_repo_url': git@github.com:orocos-gbp/rtt_ros_integration-release.git
 tracks:
   hydro:
     actions:
