@@ -1,0 +1,12 @@
+Source: ros-indigo-rtt-rosdeployment
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin, ros-indigo-roscpp, ros-indigo-rtt-ros, ros-indigo-rtt-ros-msgs
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-indigo-rtt-rosdeployment
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-roscpp, ros-indigo-rtt-ros, ros-indigo-rtt-ros-msgs
+Description: rtt_rosdeployment provides an RTT plugin to control an ocl deployment component over ROS service calls.
