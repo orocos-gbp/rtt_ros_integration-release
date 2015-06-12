@@ -1,0 +1,12 @@
+Source: ros-indigo-rtt-common-msgs
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-indigo-rtt-common-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-rtt-actionlib-msgs, ros-indigo-rtt-diagnostic-msgs, ros-indigo-rtt-geometry-msgs, ros-indigo-rtt-nav-msgs, ros-indigo-rtt-sensor-msgs, ros-indigo-rtt-shape-msgs, ros-indigo-rtt-stereo-msgs, ros-indigo-rtt-trajectory-msgs, ros-indigo-rtt-visualization-msgs
+Description: The rtt_common_msgs package
