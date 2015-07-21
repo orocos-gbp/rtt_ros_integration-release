@@ -44,6 +44,7 @@
 #include <rtt/OperationCaller.hpp>
 
 #include <rtt/internal/DataSources.hpp>
+#include <rtt/internal/GlobalEngine.hpp>
 
 #include <ros/ros.h>
 
@@ -141,12 +142,12 @@ struct dynamic_reconfigure_traits {
     static void clamp(ConfigType &config, const ServerType *) { config.__clamp__(); }
 
     /**
-     * Create a new RTT::internal::ValueDataSource<RTT::PropertyBag> filled with properties from a ConfigType instance.
+     * Creates a new RTT::internal::AssignableDataSource<RTT::PropertyBag> filled with properties from a ConfigType instance.
      *
      * \param config referencte to the ConfigType instance to be read
      * \param server pointer to the rtt_dynamic_reconfigure server instance whose updater is going to be used
      */
-    static RTT::internal::AssignableDataSource<RTT::PropertyBag>::shared_ptr toPropertyBag(ConfigType &config, const ServerType *server) {
+    static RTT::internal::AssignableDataSource<RTT::PropertyBag>::shared_ptr getDataSource(ConfigType &config, const ServerType *server) {
         RTT::internal::AssignableDataSource<RTT::PropertyBag>::shared_ptr ds(new RTT::internal::ValueDataSource<RTT::PropertyBag>());
         if (!server->updater()->propertiesFromConfig(config, ~0, ds->set()))
             ds.reset();
@@ -438,9 +439,9 @@ public:
         this->properties()->remove(this->properties()->getProperty("min"));
         this->properties()->remove(this->properties()->getProperty("max"));
         this->properties()->remove(this->properties()->getProperty("default"));
-        this->properties()->ownProperty(new RTT::Property<RTT::PropertyBag>("min", "Minimum values as published to dynamic_reconfigure clients", traits::toPropertyBag(min_, this)));
-        this->properties()->ownProperty(new RTT::Property<RTT::PropertyBag>("max", "Maximum values as published to dynamic_reconfigure clients", traits::toPropertyBag(max_, this)));
-        this->properties()->ownProperty(new RTT::Property<RTT::PropertyBag>("default", "Default values as published to dynamic_reconfigure clients", traits::toPropertyBag(default_, this)));
+        this->properties()->ownProperty(new RTT::Property<RTT::PropertyBag>("min", "Minimum values as published to dynamic_reconfigure clients", traits::getDataSource(min_, this)));
+        this->properties()->ownProperty(new RTT::Property<RTT::PropertyBag>("max", "Maximum values as published to dynamic_reconfigure clients", traits::getDataSource(max_, this)));
+        this->properties()->ownProperty(new RTT::Property<RTT::PropertyBag>("default", "Default values as published to dynamic_reconfigure clients", traits::getDataSource(default_, this)));
 
         // Get initial values from current property settings
         config_ = ConfigType();
@@ -530,6 +531,10 @@ private:
             notify_callback_ = getOwner()->provides()->getLocalOperation("notifyPropertiesUpdate");
         }
 
+        // update_callback_ and notify_callback_ are called from the ROS spinner thread -> set GlobalEngine as caller engine
+        update_callback_.setCaller(RTT::internal::GlobalEngine::Instance());
+        notify_callback_.setCaller(RTT::internal::GlobalEngine::Instance());
+
         // refresh once
         refresh();
     }
@@ -595,9 +600,11 @@ bool setProperty(const std::string &name, RTT::PropertyBag &bag, ValueType &valu
         RTT::Property<T> *prop = bag.getPropertyType<T>(name);
         if (!prop) {
             RTT::log(RTT::Error) << "Could not assign property '" << name << "': Property exists with a different type." << RTT::endlog();
-        } else {
-            prop->set() = value;
+            return false;
         }
+
+        prop->set() = value;
+
     } else {
         if (boost::is_same<T,ValueType>::value) {
             bag.addProperty(name, value);
@@ -605,6 +612,8 @@ bool setProperty(const std::string &name, RTT::PropertyBag &bag, ValueType &valu
             bag.ownProperty(new RTT::Property<T>(name, std::string(), value));
         }
     }
+
+    return true;
 }
 
 /**
@@ -623,16 +632,14 @@ bool getProperty(const std::string &name, const RTT::PropertyBag &bag, ValueType
     RTT::Property<T> *prop = bag.getPropertyType<T>(name);
     if (!prop) {
         RTT::log(RTT::Error) << "Could not get property '" << name << "': No such property in the bag." << RTT::endlog();
-    } else {
-        value = prop->rvalue();
+        return false;
     }
+
+    value = prop->rvalue();
+    return true;
 }
 
 } // namespace rtt_dynamic_reconfigure
-
-#include <rtt/plugin/ServicePlugin.hpp>
-//#define RTT_DYNAMIC_RECONFIGURE_SERVICE_PLUGIN(CONFIG, NAME) \
-//    ORO_SERVICE_NAMED_PLUGIN(rtt_dynamic_reconfigure::Server<CONFIG>, NAME)
 
 #define RTT_DYNAMIC_RECONFIGURE_SERVICE_PLUGIN(CONFIG, NAME) \
     extern "C" {\
