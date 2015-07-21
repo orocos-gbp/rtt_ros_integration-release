@@ -1,0 +1,12 @@
+Source: ros-hydro-rtt-rospack
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-hydro-catkin, ros-hydro-roslib, ros-hydro-rtt-ros
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-hydro-rtt-rospack
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-roslib, ros-hydro-rtt-ros
+Description: rtt_rospack provides an RTT plugin to use rospack to find packages in your ROS_PACKAGE_PATH
