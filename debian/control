@@ -1,0 +1,12 @@
+Source: ros-hydro-rtt-rosdeployment
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-hydro-catkin, ros-hydro-roscpp, ros-hydro-rtt-ros, ros-hydro-rtt-ros-msgs
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-hydro-rtt-rosdeployment
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-roscpp, ros-hydro-rtt-ros, ros-hydro-rtt-ros-msgs
+Description: rtt_rosdeployment provides an RTT plugin to control an ocl deployment component over ROS service calls.
