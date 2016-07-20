@@ -1,0 +1,12 @@
+Source: ros-indigo-rtt-ros-integration
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-indigo-rtt-ros-integration
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-rtt-actionlib, ros-indigo-rtt-dynamic-reconfigure, ros-indigo-rtt-ros, ros-indigo-rtt-ros-msgs, ros-indigo-rtt-rosclock, ros-indigo-rtt-roscomm, ros-indigo-rtt-rosdeployment, ros-indigo-rtt-rosnode, ros-indigo-rtt-rospack, ros-indigo-rtt-rosparam, ros-indigo-rtt-tf
+Description: This stack contains all software necessary to build systems using both Orocos and ROS infrastructures
