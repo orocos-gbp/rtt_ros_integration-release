@@ -1,3 +1,0 @@
-<launch>
-  <test test-name="transport_tests" pkg="rtt_roscomm_tests" type="transport_tests" />
-</launch>
