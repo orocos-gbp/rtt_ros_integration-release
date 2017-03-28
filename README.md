@@ -1,3 +1,53 @@
+## rtt_ros_integration (indigo) - 2.8.5-0
+
+The packages in the `rtt_ros_integration` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --track indigo --rosdistro indigo rtt_ros_integration --edit` on `Tue, 28 Mar 2017 16:08:06 -0000`
+
+These packages were released:
+- `rtt_actionlib`
+- `rtt_actionlib_msgs`
+- `rtt_common_msgs`
+- `rtt_diagnostic_msgs`
+- `rtt_dynamic_reconfigure`
+- `rtt_geometry_msgs`
+- `rtt_kdl_conversions`
+- `rtt_nav_msgs`
+- `rtt_ros`
+- `rtt_ros_comm`
+- `rtt_ros_integration`
+- `rtt_ros_msgs`
+- `rtt_rosclock`
+- `rtt_roscomm`
+- `rtt_rosdeployment`
+- `rtt_rosgraph_msgs`
+- `rtt_rosnode`
+- `rtt_rospack`
+- `rtt_rosparam`
+- `rtt_sensor_msgs`
+- `rtt_shape_msgs`
+- `rtt_std_msgs`
+- `rtt_std_srvs`
+- `rtt_stereo_msgs`
+- `rtt_tf`
+- `rtt_trajectory_msgs`
+- `rtt_visualization_msgs`
+
+Version of package(s) in repository `rtt_ros_integration`:
+
+- upstream repository: https://github.com/orocos/rtt_ros_integration.git
+- release repository: https://github.com/orocos-gbp/rtt_ros_integration-release.git
+- rosdistro version: `2.8.4-0`
+- old version: `2.8.4-0`
+- new version: `2.8.5-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.25`
+- catkin_pkg version: `0.3.1`
+- rosdep version: `0.11.5`
+- rosdistro version: `0.6.1`
+- vcstools version: `0.1.39`
+
+
 ## rtt_ros_integration (jade) - 2.8.4-1
 
 The packages in the `rtt_ros_integration` repository were released into the `jade` distro by running `/usr/bin/bloom-release rtt_ros_integration --rosdistro jade --track jade` on `Sat, 26 Nov 2016 15:37:59 -0000`
