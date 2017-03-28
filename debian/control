@@ -1,0 +1,12 @@
+Source: ros-indigo-rtt-roscomm
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin, ros-indigo-genmsg, ros-indigo-roscpp, ros-indigo-rtt-ros, ros-indigo-rtt-rosnode, ros-indigo-rtt-rospack
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-indigo-rtt-roscomm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-genmsg, ros-indigo-roscpp, ros-indigo-rtt-ros, ros-indigo-rtt-rosnode, ros-indigo-rtt-rospack
+Description: rtt_roscomm provides the necessary template files and cmake macros for automatic rtt typekit and transport generation from ROS msg files
