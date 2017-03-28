@@ -69,4 +69,4 @@ tracks:
     ros_distro: jade
     vcs_type: git
     vcs_uri: https://github.com/orocos/rtt_ros_integration.git
-    version: :{auto}
+    version: :{ask}
