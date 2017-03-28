@@ -45,7 +45,7 @@ tracks:
     ros_distro: indigo
     vcs_type: git
     vcs_uri: https://github.com/orocos/rtt_ros_integration.git
-    version: :{auto}
+    version: :{ask}
   jade:
     actions:
     - bloom-export-upstream :{vcs_local_uri} :{vcs_type} --tag :{release_tag} --display-uri
