@@ -1,0 +1,26 @@
+ros-jade-rtt-rosnode (2.8.5-0vivid) vivid; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Tue, 28 Mar 2017 00:00:00 -0000
+
+ros-jade-rtt-rosnode (2.8.4-0vivid) vivid; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Sat, 26 Nov 2016 00:00:00 -0000
+
+ros-jade-rtt-rosnode (2.8.3-0vivid) vivid; urgency=high
+
+  * rtt_rosnode: fixed corruption of RTT's argv vector when loading the rosnode plugin (fix #54 <https://github.com/orocos/rtt_ros_integration/issues/54>)
+  * Contributors: Johannes Meyer
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Wed, 20 Jul 2016 00:00:00 -0000
+
+ros-jade-rtt-rosnode (2.8.2-0vivid) vivid; urgency=high
+
+  * see rtt_ros_integratoin/CHANGELOG.rst <../rtt_ros_integration/CHANGELOG.rst>
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Fri, 12 Jun 2015 00:00:00 -0000
+
+
