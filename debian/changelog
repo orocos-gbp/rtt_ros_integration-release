@@ -1,0 +1,47 @@
+ros-kinetic-rtt-rosparam (2.9.0-0wily) wily; urgency=high
+
+  * rtt_rosparam: removed cmake_modules dependency and fixed export of eigen3 dependency
+  * rtt_rosparam: fixed retrieval of Eigen::VectorXf properties from the parameter server
+  * rtt_rosparam: added missing operations and operation callers
+  * rtt_rosparam: moved ResolutionPolicy enum to the service requester header
+  * rtt_rosparam: enabled Eigen-based operation callers in rosparam.h and added build_export_depend
+  * sync service with new functions
+  * add vectorXd/Xf methods
+  * add Component private/relative/absolute methods
+  * add template instead of macros
+  * add missing comma
+  * only ops supported types
+  * add ros param getter and setters operations
+  * add Component private/Relative resolution
+  * Added individual changelogs and bumped versions to 2.9.0
+  * cast enum to int to avoid warning
+  * Contributors: Antoine Hoarau, Johannes Meyer
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Mon, 01 May 2017 22:00:00 -0000
+
+ros-kinetic-rtt-rosparam (2.8.5-0wily) wily; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Mon, 27 Mar 2017 22:00:00 -0000
+
+ros-kinetic-rtt-rosparam (2.8.4-0wily) wily; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Fri, 25 Nov 2016 23:00:00 -0000
+
+ros-kinetic-rtt-rosparam (2.8.3-0wily) wily; urgency=high
+
+  * cast enum to int to avoid warning
+  * Contributors: Antoine Hoarau
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Tue, 19 Jul 2016 22:00:00 -0000
+
+ros-kinetic-rtt-rosparam (2.8.2-0wily) wily; urgency=high
+
+  * see rtt_ros_integratoin/CHANGELOG.rst <../rtt_ros_integration/CHANGELOG.rst>
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Thu, 11 Jun 2015 22:00:00 -0000
+
+
