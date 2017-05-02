@@ -1,3 +1,0 @@
-<launch>
-  <test test-name="param_tests" pkg="rtt_rosparam_tests" type="param_tests" />
-</launch>
