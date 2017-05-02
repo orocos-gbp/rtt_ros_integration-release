@@ -1,0 +1,12 @@
+Source: ros-kinetic-rtt-roscomm
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-genmsg, ros-kinetic-roscpp, ros-kinetic-rtt-ros, ros-kinetic-rtt-rosnode, ros-kinetic-rtt-rospack
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-rtt-roscomm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-genmsg, ros-kinetic-roscpp, ros-kinetic-rtt-ros, ros-kinetic-rtt-rosnode, ros-kinetic-rtt-rospack
+Description: rtt_roscomm provides the necessary template files and cmake macros for automatic rtt typekit and transport generation from ROS msg files
