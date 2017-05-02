@@ -1,0 +1,35 @@
+ros-kinetic-rtt-std-msgs (2.9.0-0wily) wily; urgency=high
+
+  * Added deprecation warning for header rtt_roscomm/rtt_rostopic.h and updated some include directives within rtt_ros_integration
+  * Added individual changelogs and bumped versions to 2.9.0
+  * Contributors: Johannes Meyer
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Mon, 01 May 2017 22:00:00 -0000
+
+ros-kinetic-rtt-std-msgs (2.8.5-0wily) wily; urgency=high
+
+  * Merge pull request #85 <https://github.com/orocos/rtt_ros_integration/issues/85> from meyerj/ros-primitives-transport-indigo-devel
+    Added a ROS transport plugin for primitive types (indigo-devel)
+  * Contributors: Johannes Meyer
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Mon, 27 Mar 2017 22:00:00 -0000
+
+ros-kinetic-rtt-std-msgs (2.8.4-0wily) wily; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Fri, 25 Nov 2016 23:00:00 -0000
+
+ros-kinetic-rtt-std-msgs (2.8.3-0wily) wily; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Tue, 19 Jul 2016 22:00:00 -0000
+
+ros-kinetic-rtt-std-msgs (2.8.2-0wily) wily; urgency=high
+
+  * see rtt_ros_integratoin/CHANGELOG.rst <../rtt_ros_integration/CHANGELOG.rst>
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Thu, 11 Jun 2015 22:00:00 -0000
+
+
