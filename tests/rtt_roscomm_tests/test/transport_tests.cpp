@@ -7,7 +7,7 @@
 #include <rtt/Logger.hpp>
 #include <rtt/deployment/ComponentLoader.hpp>
 
-#include <rtt_roscomm/rtt_rostopic.h>
+#include <rtt_roscomm/rostopic.h>
 #include <rtt_roscomm/rosservice.h>
 #include <std_msgs/typekit/String.h>
 #include <std_srvs/Empty.h>
@@ -159,6 +159,19 @@ TEST(TransportTest, ServiceServerTest)
   std_srvs::Empty empty;
   EXPECT_TRUE(service_caller(empty.request, empty.response));
   EXPECT_EQ(1, callback_called);
+
+  // Disconnect the service
+  EXPECT_TRUE(rosservice.lock()->disconnect(service));
+
+  // Check that the service server has been destroyed
+  EXPECT_FALSE(ros::ServiceManager::instance()->lookupServicePublication(service));
+
+  // Destroy the TaskContext
+  delete tc;
+  EXPECT_TRUE(rosservice.expired());
+
+  // Check that the service server has been destroyed (again)
+  EXPECT_FALSE(ros::ServiceManager::instance()->lookupServicePublication(service));
 }
 
 int main(int argc, char** argv) {

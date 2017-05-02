@@ -49,6 +49,7 @@
 #ifndef __RTT_ROSCOMM_ROS_MSG_TRANSPORTER_HPP_
 #define __RTT_ROSCOMM_ROS_MSG_TRANSPORTER_HPP_
 
+#include <rtt/rtt-config.h>
 #include <rtt/types/TypeTransporter.hpp>
 #include <rtt/Port.hpp>
 #include <rtt/TaskContext.hpp>
@@ -56,6 +57,13 @@
 #include <ros/ros.h>
 
 #include <rtt_roscomm/rtt_rostopic_ros_publish_activity.hpp>
+
+#ifndef RTT_VERSION_GTE
+  #define RTT_VERSION_GTE(major,minor,patch) \
+      ((RTT_VERSION_MAJOR > major) || (RTT_VERSION_MAJOR == major && \
+       (RTT_VERSION_MINOR > minor) || (RTT_VERSION_MINOR == minor && \
+       (RTT_VERSION_PATCH >= patch))))
+#endif
 
 namespace rtt_roscomm {
 
@@ -158,13 +166,21 @@ namespace rtt_roscomm {
      * 
      * @param sample 
      * 
-     * @return always true
+     * @return always true/WriteSuccess
      */
+#if RTT_VERSION_GTE(2,8,99)
+    virtual RTT::WriteStatus data_sample(typename RTT::base::ChannelElement<T>::param_t sample)
+    {
+      this->sample = sample;
+      return RTT::WriteSuccess;
+    }
+#else
     virtual bool data_sample(typename RTT::base::ChannelElement<T>::param_t sample)
     {
       this->sample = sample;
       return true;
     }
+#endif
 
     /** 
      * signal from the port that new data is availabe to publish
@@ -184,10 +200,18 @@ namespace rtt_roscomm {
         write(sample);
     }
 
+#if RTT_VERSION_GTE(2,8,99)
+    RTT::WriteStatus write(typename RTT::base::ChannelElement<T>::param_t sample)
+#else
     bool write(typename RTT::base::ChannelElement<T>::param_t sample)
+#endif
     {
       ros_pub.publish(adapter::toRos(sample));
+#if RTT_VERSION_GTE(2,8,99)
+      return RTT::WriteSuccess;
+#else
       return true;
+#endif
     }
     
   };
@@ -242,7 +266,8 @@ namespace rtt_roscomm {
     virtual bool inputReady() {
       return true;
     }
-    /** 
+
+    /**
      * Callback function for the ROS subscriber, it will trigger the ChannelElement's signal function
      * 
      * @param msg The received message
@@ -259,6 +284,19 @@ namespace rtt_roscomm {
   {
     virtual RTT::base::ChannelElementBase::shared_ptr createStream (RTT::base::PortInterface *port, const RTT::ConnPolicy &policy, bool is_sender) const{
       RTT::base::ChannelElementBase::shared_ptr channel;
+
+      // Pull semantics are not supported by the ROS message transport.
+      if (policy.pull) {
+          RTT::log(RTT::Error) << "Pull connections are not supported by the ROS message transport." << RTT::endlog();
+          return RTT::base::ChannelElementBase::shared_ptr();
+      }
+
+      // Check if this node is initialized
+      if (!ros::ok()) {
+          RTT::log(RTT::Error) << "Cannot create ROS message transport because the node is not initialized or already shutting down. Did you import package rtt_rosnode before?" << RTT::endlog();
+          return RTT::base::ChannelElementBase::shared_ptr();
+      }
+
       if (is_sender){
         channel = new RosPubChannelElement<T>(port, policy);
 
@@ -269,16 +307,21 @@ namespace rtt_roscomm {
 
         RTT::base::ChannelElementBase::shared_ptr buf = RTT::internal::ConnFactory::buildDataStorage<T>(policy);
         if (!buf) return RTT::base::ChannelElementBase::shared_ptr();
+#if RTT_VERSION_GTE(2,8,99)
+        buf->connectTo(channel);
+#else
         buf->setOutput(channel);
-
+#endif
         return buf;
 
       } else {
         channel = new RosSubChannelElement<T>(port, policy);
 
+#if !RTT_VERSION_GTE(2,8,99)
         RTT::base::ChannelElementBase::shared_ptr buf = RTT::internal::ConnFactory::buildDataStorage<T>(policy);
         if (!buf) return RTT::base::ChannelElementBase::shared_ptr();
         channel->setOutput(buf);
+#endif
       }
 
       return channel;
