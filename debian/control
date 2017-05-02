@@ -1,0 +1,12 @@
+Source: ros-kinetic-rtt-common-msgs
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-rtt-common-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-rtt-actionlib-msgs, ros-kinetic-rtt-diagnostic-msgs, ros-kinetic-rtt-geometry-msgs, ros-kinetic-rtt-nav-msgs, ros-kinetic-rtt-sensor-msgs, ros-kinetic-rtt-shape-msgs, ros-kinetic-rtt-stereo-msgs, ros-kinetic-rtt-trajectory-msgs, ros-kinetic-rtt-visualization-msgs
+Description: The rtt_common_msgs package
