@@ -1,0 +1,12 @@
+Source: ros-kinetic-rtt-ros-integration
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-rtt-ros-integration
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-rtt-actionlib, ros-kinetic-rtt-dynamic-reconfigure, ros-kinetic-rtt-ros, ros-kinetic-rtt-ros-msgs, ros-kinetic-rtt-rosclock, ros-kinetic-rtt-roscomm, ros-kinetic-rtt-rosdeployment, ros-kinetic-rtt-rosnode, ros-kinetic-rtt-rospack, ros-kinetic-rtt-rosparam, ros-kinetic-rtt-tf
+Description: This stack contains all software necessary to build systems using both Orocos and ROS infrastructures
