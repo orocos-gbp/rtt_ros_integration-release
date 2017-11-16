@@ -2,10 +2,16 @@
 Changelog for package rtt_shape_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.9.1 (2017-11-16)
+------------------
+
 2.9.0 (2017-05-02)
 ------------------
 * Added individual changelogs and bumped versions to 2.9.0
 * Contributors: Johannes Meyer
+
+2.8.6 (2017-11-15)
+------------------
 
 2.8.5 (2017-03-28)
 ------------------
