@@ -1,0 +1,12 @@
+Source: ros-kinetic-rtt-ros-comm
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-rtt-ros-comm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-rtt-rosgraph-msgs, ros-kinetic-rtt-std-msgs, ros-kinetic-rtt-std-srvs
+Description: The rtt_ros_comm package
