@@ -2,6 +2,20 @@
 Changelog for package rtt_rosclock
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.9.1 (2017-11-16)
+------------------
+* Merge pull request `#93 <https://github.com/orocos/rtt_ros_integration/issues/93>`_ from ahoarau/xenomai3-support
+  Xenomai 3 support
+* Contributors: Antoine Hoarau
+
+2.9.0 (2017-05-02)
+------------------
+* fix xenomai rtt_now() fix PR`#41 <https://github.com/orocos/rtt_ros_integration/issues/41>`_
+* Added individual changelogs and bumped versions to 2.9.0
+* rtt_rosclock: adapted SimClockActivity to the updated ActivityInterface with the master-update-hook-vs-callback-queue patch (`orocos-toolchain/rtt#91 <https://github.com/orocos-toolchain/rtt/issues/91>`_)
+  Signed-off-by: Johannes Meyer <johannes@intermodalics.eu>
+* Contributors: Antoine Hoarau, Johannes Meyer
+
 2.8.6 (2017-11-15)
 ------------------
 

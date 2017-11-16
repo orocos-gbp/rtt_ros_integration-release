@@ -2,6 +2,14 @@
 Orocos RTT/ROS Integration Changelog
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.9.1 (2017-11-16)
+------------------
+
+2.9.0 (2017-05-02)
+------------------
+* Added individual changelogs and bumped versions to 2.9.0
+* Contributors: Johannes Meyer
+
 2.8.6 (2017-11-15)
 ------------------
 
@@ -22,7 +30,7 @@ Orocos RTT/ROS Integration Changelog
   - ...
 
 2.8.2 (2015-06-12)
------------
+------------------
 
 2.8.1 (2015-03-16)
 ------------------
