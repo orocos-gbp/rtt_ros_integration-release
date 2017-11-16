@@ -1,0 +1,12 @@
+Source: ros-kinetic-rtt-rosdeployment
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-roscpp, ros-kinetic-rtt-ros, ros-kinetic-rtt-ros-msgs
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-rtt-rosdeployment
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-roscpp, ros-kinetic-rtt-ros, ros-kinetic-rtt-ros-msgs
+Description: rtt_rosdeployment provides an RTT plugin to control an ocl deployment component over ROS service calls.
