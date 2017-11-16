@@ -2,6 +2,10 @@
 Changelog for package rtt_dynamic_reconfigure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.9.1 (2017-11-16)
+------------------
+* Merge with version 2.8.6
+
 2.9.0 (2017-05-02)
 ------------------
 * rtt_dynamic_reconfigure: create a partially filled PropertyBag from a Config message that only has a subset of fields
@@ -24,6 +28,16 @@ Changelog for package rtt_dynamic_reconfigure
   RTT 2.9 and above already checks the caller thread internally and therefore does not require this hack.
 * Added individual changelogs and bumped versions to 2.9.0
 * Contributors: Johannes Meyer, Viktor Kunovski
+
+2.8.6 (2017-11-15)
+------------------
+* rtt_dynamic_reconfigure: fix a bug that duplicate ids when generating a parameter description from a property tree
+  The `id` field of each groups in a dynamic_reconfigure/ConfigDescription message must be unique and some groups
+  might reference another as their parent. Without this patch the ids were assigned locally and were only unique within
+  the same group, which confused rqt_reconfigure and the dynparam console client when they try to rebuild the tree
+  hierarchy in more complex cases.
+* Contributors: Johannes Meyer
+
 
 2.8.5 (2017-03-28)
 ------------------
