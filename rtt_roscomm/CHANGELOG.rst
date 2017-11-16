@@ -2,6 +2,10 @@
 Changelog for package rtt_roscomm
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.9.1 (2017-11-16)
+------------------
+* Merge with version 2.8.6
+
 2.9.0 (2017-05-02)
 ------------------
 * rtt_roscomm: find templates and create_boost_header.py script directly in the source-space
@@ -24,6 +28,12 @@ Changelog for package rtt_roscomm
 * Added CORBA and mqueue transport for ROS typekits
 * rtt_roscomm: added support for updated dataflow semantics (RTT version >= 2.8.99)
 * Contributors: Antoine Hoarau, Guillaume Walck, Johannes Meyer
+
+2.8.6 (2017-11-15)
+------------------
+* rtt_roscomm: also set ${PROJECT_NAME}_EXPORTED_LIBRARIES in parent scope
+  Related to https://github.com/orocos-toolchain/rtt/pull/244.
+* Contributors: Johannes Meyer
 
 2.8.5 (2017-03-28)
 ------------------
