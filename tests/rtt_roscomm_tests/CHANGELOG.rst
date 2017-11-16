@@ -2,6 +2,9 @@
 Changelog for package rtt_roscomm_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.9.1 (2017-11-16)
+------------------
+
 2.9.0 (2017-05-02)
 ------------------
 * rtt_std_msgs: added a VectorMultiArrayAdapter class and added type transporter for arrays (std_msgs/Float64MultiArray)
@@ -15,6 +18,9 @@ Changelog for package rtt_roscomm_tests
 * tests: add USE_OROCOS_INCLUDE_DIRS explicitly and remove orocos_generate_package() calls for tests
 * rtt_roscomm_tests: added an out-of-band test using the ROS transport
 * Contributors: Johannes Meyer
+
+2.8.6 (2017-11-15)
+------------------
 
 2.8.5 (2017-03-28)
 ------------------
