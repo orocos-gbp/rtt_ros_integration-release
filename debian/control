@@ -1,0 +1,12 @@
+Source: ros-indigo-rtt-ros
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), libxml2-dev, ros-indigo-catkin, ros-indigo-ocl, ros-indigo-roslib, ros-indigo-rospack, ros-indigo-rostime, ros-indigo-rtt
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-indigo-rtt-ros
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxml2-dev, ros-indigo-ocl, ros-indigo-roslib, ros-indigo-rospack, ros-indigo-rostime, ros-indigo-rtt
+Description: This package provides an RTT plugin to add a ROS node to the RTT process, as well as several wrapper scripts to enable roslaunching of orocos programs.
