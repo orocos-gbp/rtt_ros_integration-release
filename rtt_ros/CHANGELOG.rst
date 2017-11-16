@@ -2,10 +2,16 @@
 Changelog for package rtt_ros
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.9.1 (2017-11-16)
+------------------
+
 2.9.0 (2017-05-02)
 ------------------
 * rtt_std_msgs: added a transport plugin for ROS primitive types
 * Contributors: Johannes Meyer
+
+2.8.6 (2017-11-15)
+------------------
 
 2.8.5 (2017-03-28)
 ------------------
