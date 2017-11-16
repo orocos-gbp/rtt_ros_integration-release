@@ -2,11 +2,8 @@
 Changelog for package rtt_rospack_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.9.0 (2017-05-02)
+2.8.6 (2017-11-15)
 ------------------
-* Added individual changelogs and bumped versions to 2.9.0
-* tests: add USE_OROCOS_INCLUDE_DIRS explicitly and remove orocos_generate_package() calls for tests
-* Contributors: Johannes Meyer
 
 2.8.5 (2017-03-28)
 ------------------

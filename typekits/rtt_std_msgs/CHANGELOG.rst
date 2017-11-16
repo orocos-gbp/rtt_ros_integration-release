@@ -2,11 +2,8 @@
 Changelog for package rtt_std_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.9.0 (2017-05-02)
+2.8.6 (2017-11-15)
 ------------------
-* Added deprecation warning for header rtt_roscomm/rtt_rostopic.h and updated some include directives within rtt_ros_integration
-* Added individual changelogs and bumped versions to 2.9.0
-* Contributors: Johannes Meyer
 
 2.8.5 (2017-03-28)
 ------------------

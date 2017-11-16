@@ -4,7 +4,7 @@
 #include <rtt/RTT.hpp>
 #include <rtt/Property.hpp>
 
-namespace rtt_roscomm {
+namespace rtt_rosservice {
 
   class ROSService : public RTT::ServiceRequester
   {
@@ -24,10 +24,6 @@ namespace rtt_roscomm {
     RTT::OperationCaller<bool(const std::string &)> disconnect;
     RTT::OperationCaller<void()> disconnectAll;
   };
-}
-
-namespace rtt_rosservice {
-    using rtt_roscomm::ROSService; // deprecated
 }
 
 #endif // ifndef __RTT_ROSSERVICE_ROSSERVICE_H

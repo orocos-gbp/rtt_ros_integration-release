@@ -2,13 +2,8 @@
 Changelog for package rtt_dynamic_reconfigure_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.9.0 (2017-05-02)
+2.8.6 (2017-11-15)
 ------------------
-* rtt_dynamic_reconfigure_tests: added tests for user callbacks
-* rtt_dynamic_reconfigure: fixed potential deadlock in refresh() for RTT prior to 2.9
-* Added individual changelogs and bumped versions to 2.9.0
-* tests: add USE_OROCOS_INCLUDE_DIRS explicitly and remove orocos_generate_package() calls for tests
-* Contributors: Johannes Meyer
 
 2.8.5 (2017-03-28)
 ------------------

@@ -2,11 +2,8 @@
 Changelog for package rtt_kdl_conversions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.9.0 (2017-05-02)
+2.8.6 (2017-11-15)
 ------------------
-* rtt_kdl_conversions: removed operations for deprecated functions
-* Added individual changelogs and bumped versions to 2.9.0
-* Contributors: Johannes Meyer
 
 2.8.5 (2017-03-28)
 ------------------

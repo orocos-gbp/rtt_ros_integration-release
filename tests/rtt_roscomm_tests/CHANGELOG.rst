@@ -2,19 +2,8 @@
 Changelog for package rtt_roscomm_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.9.0 (2017-05-02)
+2.8.6 (2017-11-15)
 ------------------
-* rtt_std_msgs: added a VectorMultiArrayAdapter class and added type transporter for arrays (std_msgs/Float64MultiArray)
-* rtt_std_msgs: added a transport plugin for ROS primitive types
-* rtt_roscomm_tests: fixed create_rtt_msgs test
-* rtt_roscomm: renamed header rtt_rostopic.h to rostopic.h and changed namespace for the ROSService service requester for consistency
-* rtt_roscomm_tests: added a test for the rosservice plugin
-* rtt_roscomm_tests: check advertised/subscribed topics and publisher/subscriber destruction
-* Added individual changelogs and bumped versions to 2.9.0
-* tests: split off out-of-band ROS transport test using rostest and integrated create_rtt_msgs test with catkin
-* tests: add USE_OROCOS_INCLUDE_DIRS explicitly and remove orocos_generate_package() calls for tests
-* rtt_roscomm_tests: added an out-of-band test using the ROS transport
-* Contributors: Johannes Meyer
 
 2.8.5 (2017-03-28)
 ------------------

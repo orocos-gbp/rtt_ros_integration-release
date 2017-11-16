@@ -1,12 +1,11 @@
 
-#include <rtt_roscomm/rostopic.h>
+#include <rtt_roscomm/rtt_rostopic.h>
 
 RTT::ConnPolicy rtt_roscomm::topic(const std::string& name) {
   RTT::ConnPolicy cp = RTT::ConnPolicy::data();
   cp.transport = protocol_id;
   cp.name_id = name;
-  cp.init = false;
-  cp.pull = false;
+  cp.init=false;
   return cp;
 }
 
@@ -28,8 +27,7 @@ RTT::ConnPolicy rtt_roscomm::topicBuffer(const std::string& name, int size) {
   RTT::ConnPolicy cp = RTT::ConnPolicy::buffer(size);
   cp.transport = protocol_id;
   cp.name_id = name;
-  cp.init = false;
-  cp.pull = false;
+  cp.init=false;
   return cp;
 }
 
@@ -44,8 +42,7 @@ RTT::ConnPolicy rtt_roscomm::topicUnbuffered(const std::string& name) {
   cp.type = RTT::ConnPolicy::UNBUFFERED;
   cp.transport = protocol_id;
   cp.name_id = name;
-  cp.init = false;
-  cp.pull = false;
+  cp.init=false;
   return cp;
 }
 
