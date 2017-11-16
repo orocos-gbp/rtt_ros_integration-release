@@ -1,0 +1,12 @@
+Source: ros-kinetic-rtt-dynamic-reconfigure
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-dynamic-reconfigure, ros-kinetic-roscpp, ros-kinetic-rtt-ros
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-rtt-dynamic-reconfigure
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-dynamic-reconfigure, ros-kinetic-roscpp, ros-kinetic-rtt-ros, ros-kinetic-rtt-rosnode
+Description: The rtt_dynamic_reconfigure package
