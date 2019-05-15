@@ -29,11 +29,22 @@
 #include <rtt/plugin/Plugin.hpp>
 #include <rtt/TaskContext.hpp>
 #include <rtt/Activity.hpp>
+#include <rtt/internal/GlobalService.hpp>
 #include <rtt/Logger.hpp>
 #include <rtt/os/startstop.h>
 #include <ros/ros.h>
 
 using namespace RTT;
+
+static void loadROSService()
+{
+  RTT::Service::shared_ptr ros = RTT::internal::GlobalService::Instance()->provides("ros");
+
+  ros->addOperation("getNodeName", &ros::this_node::getName)
+	  .doc("Return full name of ROS node.");
+  ros->addOperation("getNamespace", &ros::this_node::getNamespace)
+	  .doc("Return ROS node namespace.");
+}
 
 extern "C" {
   bool loadRTTPlugin(RTT::TaskContext* c){
@@ -62,10 +73,14 @@ extern "C" {
         ros::shutdown();
         return true;
       }
-    }
 
+	  // Register new operations in global ros Service
+	  loadROSService();
+    }
+	  
+    // Defaults the number of threads to the number of CPUs available on the machine
+    int thread_count = 0;
     // get number of spinners from parameter server, if available
-    int thread_count = 1;
     ros::param::get("~spinner_threads", thread_count);
 
     // Create an asynchronous spinner to handle the default callback queue 
