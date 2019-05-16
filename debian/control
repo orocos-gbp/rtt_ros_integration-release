@@ -1,0 +1,12 @@
+Source: ros-lunar-rtt-tf
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-lunar-catkin, ros-lunar-rtt, ros-lunar-rtt-geometry-msgs, ros-lunar-rtt-roscomm, ros-lunar-tf
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-lunar-rtt-tf
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lunar-rtt, ros-lunar-rtt-geometry-msgs, ros-lunar-rtt-roscomm, ros-lunar-tf
+Description: This package contains the components of the rtt_tf package
