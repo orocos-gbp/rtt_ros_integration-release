@@ -1,0 +1,12 @@
+Source: ros-lunar-rtt-kdl-conversions
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-lunar-catkin, ros-lunar-kdl-conversions, ros-lunar-rtt
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-lunar-rtt-kdl-conversions
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lunar-kdl-conversions, ros-lunar-rtt
+Description: This package contains the components of the kdl_conversions package
