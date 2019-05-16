@@ -1,0 +1,58 @@
+ros-lunar-rtt-rosclock (2.9.2-1xenial) xenial; urgency=high
+
+  * Merge pull request #112 <https://github.com/orocos/rtt_ros_integration/issues/112> from honeybee-robotics-forks/fix-rtt-rosclock-thread-segfault into 2.9.2
+    * rtt_rosclock: fixing isSelf segfault when using simclock with ownthread operation caller
+  * Contributors: Johannes Meyer, Jonathan Bohren
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Tue, 14 May 2019 22:00:00 -0000
+
+ros-lunar-rtt-rosclock (2.9.1-1xenial) xenial; urgency=high
+
+  * Merge pull request #93 <https://github.com/orocos/rtt_ros_integration/issues/93> from ahoarau/xenomai3-support
+    Xenomai 3 support
+  * Contributors: Antoine Hoarau
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Wed, 15 Nov 2017 23:00:00 -0000
+
+ros-lunar-rtt-rosclock (2.9.0-1xenial) xenial; urgency=high
+
+  * fix xenomai rtt_now() fix PR`#41 <https://github.com/orocos/rtt_ros_integration/issues/41>`_
+  * Added individual changelogs and bumped versions to 2.9.0
+  * rtt_rosclock: adapted SimClockActivity to the updated ActivityInterface with the master-update-hook-vs-callback-queue patch (orocos-toolchain/rtt#91 <https://github.com/orocos-toolchain/rtt/issues/91>)
+    Signed-off-by: Johannes Meyer <mailto:johannes@intermodalics.eu>
+  * Contributors: Antoine Hoarau, Johannes Meyer
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Mon, 01 May 2017 22:00:00 -0000
+
+ros-lunar-rtt-rosclock (2.8.6-1xenial) xenial; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Tue, 14 Nov 2017 23:00:00 -0000
+
+ros-lunar-rtt-rosclock (2.8.5-1xenial) xenial; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Mon, 27 Mar 2017 22:00:00 -0000
+
+ros-lunar-rtt-rosclock (2.8.4-1xenial) xenial; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Fri, 25 Nov 2016 23:00:00 -0000
+
+ros-lunar-rtt-rosclock (2.8.3-1xenial) xenial; urgency=high
+
+  * fix xenomai rtt_now() fix PR`#41 <https://github.com/orocos/rtt_ros_integration/issues/41>`_
+  * Contributors: Antoine Hoarau
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Tue, 19 Jul 2016 22:00:00 -0000
+
+ros-lunar-rtt-rosclock (2.8.2-1xenial) xenial; urgency=high
+
+  * see rtt_ros_integratoin/CHANGELOG.rst <../rtt_ros_integration/CHANGELOG.rst>
+
+ -- Orocos Developers <orocos-dev@lists.mech.kuleuven.be>  Thu, 11 Jun 2015 22:00:00 -0000
+
+
