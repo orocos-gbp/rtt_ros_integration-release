@@ -1,0 +1,12 @@
+Source: ros-lunar-rtt-common-msgs
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-lunar-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-lunar-rtt-common-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lunar-rtt-actionlib-msgs, ros-lunar-rtt-diagnostic-msgs, ros-lunar-rtt-geometry-msgs, ros-lunar-rtt-nav-msgs, ros-lunar-rtt-sensor-msgs, ros-lunar-rtt-shape-msgs, ros-lunar-rtt-stereo-msgs, ros-lunar-rtt-trajectory-msgs, ros-lunar-rtt-visualization-msgs
+Description: The rtt_common_msgs package
