@@ -1,0 +1,12 @@
+Source: ros-lunar-rtt-actionlib
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-lunar-actionlib, ros-lunar-actionlib-msgs, ros-lunar-catkin, ros-lunar-roscpp, ros-lunar-rtt-actionlib-msgs, ros-lunar-rtt-ros, ros-lunar-rtt-rosclock, ros-lunar-rtt-roscomm
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-lunar-rtt-actionlib
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lunar-actionlib, ros-lunar-actionlib-msgs, ros-lunar-roscpp, ros-lunar-rtt-actionlib-msgs, ros-lunar-rtt-ros, ros-lunar-rtt-rosclock, ros-lunar-rtt-roscomm
+Description: The rtt_actionlib package
