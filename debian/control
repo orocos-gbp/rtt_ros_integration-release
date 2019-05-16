@@ -1,0 +1,12 @@
+Source: ros-lunar-rtt-roscomm
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-lunar-catkin, ros-lunar-genmsg, ros-lunar-roscpp, ros-lunar-rtt-ros, ros-lunar-rtt-rosnode, ros-lunar-rtt-rospack
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-lunar-rtt-roscomm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lunar-genmsg, ros-lunar-roscpp, ros-lunar-rtt-ros, ros-lunar-rtt-rosnode, ros-lunar-rtt-rospack
+Description: rtt_roscomm provides the necessary template files and cmake macros for automatic rtt typekit and transport generation from ROS msg files
