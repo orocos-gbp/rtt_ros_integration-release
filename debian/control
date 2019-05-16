@@ -1,0 +1,12 @@
+Source: ros-lunar-rtt-ros-integration
+Section: misc
+Priority: extra
+Maintainer: Orocos Developers <orocos-dev@lists.mech.kuleuven.be>
+Build-Depends: debhelper (>= 9.0.0), ros-lunar-catkin
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-lunar-rtt-ros-integration
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lunar-rtt-actionlib, ros-lunar-rtt-dynamic-reconfigure, ros-lunar-rtt-ros, ros-lunar-rtt-ros-msgs, ros-lunar-rtt-rosclock, ros-lunar-rtt-roscomm, ros-lunar-rtt-rosdeployment, ros-lunar-rtt-rosnode, ros-lunar-rtt-rospack, ros-lunar-rtt-rosparam, ros-lunar-rtt-tf
+Description: This stack contains all software necessary to build systems using both Orocos and ROS infrastructures
