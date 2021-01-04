@@ -1,0 +1,12 @@
+Source: ros-noetic-rtt-common-msgs
+Section: misc
+Priority: optional
+Maintainer: Orocos Developers <orocos-dev@orocos.org>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rtt-common-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-rtt-actionlib-msgs, ros-noetic-rtt-diagnostic-msgs, ros-noetic-rtt-geometry-msgs, ros-noetic-rtt-nav-msgs, ros-noetic-rtt-sensor-msgs, ros-noetic-rtt-shape-msgs, ros-noetic-rtt-stereo-msgs, ros-noetic-rtt-trajectory-msgs, ros-noetic-rtt-visualization-msgs
+Description: The rtt_common_msgs package
