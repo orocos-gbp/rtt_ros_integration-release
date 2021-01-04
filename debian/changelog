@@ -1,0 +1,65 @@
+ros-noetic-rtt-ros-comm (2.10.0-1buster) buster; urgency=high
+
+  * Merge remote-tracking branch 'origin/toolchain-2.9' into toolchain-2.10
+  * Merge pull request #154 <https://github.com/orocos/rtt_ros_integration/issues/154> from orocos/feature/add-licenses
+    add LICENSE files to rtt_ros_integration packages
+  * update e-mail of Orocos Developers in package.xml files
+  * homogenize licenses to BSD
+    The patch reorganizes all the licesnes to match to BSD and a
+    single LICENSE file is placed in the root of the repository.
+  * add LICENSE files to rtt_ros_integration packages
+  * Merge tag '2.9.2' into toolchain-2.9
+  * Contributors: Johannes Meyer, Sergio Portoles Diez, SergioPD
+
+ -- Orocos Developers <orocos-dev@orocos.org>  Sun, 03 Jan 2021 23:00:00 -0000
+
+ros-noetic-rtt-ros-comm (2.9.2-1buster) buster; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@orocos.org>  Tue, 14 May 2019 22:00:00 -0000
+
+ros-noetic-rtt-ros-comm (2.9.1-1buster) buster; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@orocos.org>  Wed, 15 Nov 2017 23:00:00 -0000
+
+ros-noetic-rtt-ros-comm (2.9.0-1buster) buster; urgency=high
+
+  * Added individual changelogs and bumped versions to 2.9.0
+  * Contributors: Johannes Meyer
+
+ -- Orocos Developers <orocos-dev@orocos.org>  Mon, 01 May 2017 22:00:00 -0000
+
+ros-noetic-rtt-ros-comm (2.8.6-1buster) buster; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@orocos.org>  Tue, 14 Nov 2017 23:00:00 -0000
+
+ros-noetic-rtt-ros-comm (2.8.5-1buster) buster; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@orocos.org>  Mon, 27 Mar 2017 22:00:00 -0000
+
+ros-noetic-rtt-ros-comm (2.8.4-1buster) buster; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@orocos.org>  Fri, 25 Nov 2016 23:00:00 -0000
+
+ros-noetic-rtt-ros-comm (2.8.3-1buster) buster; urgency=high
+
+
+
+ -- Orocos Developers <orocos-dev@orocos.org>  Tue, 19 Jul 2016 22:00:00 -0000
+
+ros-noetic-rtt-ros-comm (2.8.2-1buster) buster; urgency=high
+
+  * see rtt_ros_integratoin/CHANGELOG.rst <../rtt_ros_integration/CHANGELOG.rst>
+
+ -- Orocos Developers <orocos-dev@orocos.org>  Thu, 11 Jun 2015 22:00:00 -0000
+
+
