@@ -1,0 +1,12 @@
+Source: ros-noetic-rtt-kdl-conversions
+Section: misc
+Priority: optional
+Maintainer: Orocos Developers <orocos-dev@orocos.org>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin, ros-noetic-kdl-conversions, ros-noetic-rtt
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rtt-kdl-conversions
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-kdl-conversions, ros-noetic-rtt
+Description: This package contains the components of the kdl_conversions package
