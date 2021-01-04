@@ -1,0 +1,12 @@
+Source: ros-noetic-rtt-ros-integration
+Section: misc
+Priority: optional
+Maintainer: Orocos Developers <orocos-dev@orocos.org>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rtt-ros-integration
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-rtt-actionlib, ros-noetic-rtt-dynamic-reconfigure, ros-noetic-rtt-ros, ros-noetic-rtt-ros-msgs, ros-noetic-rtt-rosclock, ros-noetic-rtt-roscomm, ros-noetic-rtt-rosdeployment, ros-noetic-rtt-rosnode, ros-noetic-rtt-rospack, ros-noetic-rtt-rosparam, ros-noetic-rtt-tf
+Description: This stack contains all software necessary to build systems using both Orocos and ROS infrastructures
