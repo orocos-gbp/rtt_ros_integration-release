@@ -1,0 +1,12 @@
+Source: ros-noetic-rtt-rosnode
+Section: misc
+Priority: optional
+Maintainer: Orocos Developers <orocos-dev@orocos.org>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin, ros-noetic-roscpp, ros-noetic-rtt-ros
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rtt-rosnode
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-roscpp, ros-noetic-rtt-ros
+Description: This package provides an RTT plugin to add a ROS node to the RTT process.
