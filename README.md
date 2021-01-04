@@ -1,3 +1,54 @@
+## rtt_ros_integration (noetic) - 2.10.0-1
+
+The packages in the `rtt_ros_integration` repository were released into the `noetic` distro by running `/usr/bin/bloom-release --ros-distro noetic rtt_ros_integration` on `Mon, 04 Jan 2021 12:57:43 -0000`
+
+These packages were released:
+- `rtt_actionlib`
+- `rtt_actionlib_msgs`
+- `rtt_common_msgs`
+- `rtt_diagnostic_msgs`
+- `rtt_dynamic_reconfigure`
+- `rtt_geometry_msgs`
+- `rtt_kdl_conversions`
+- `rtt_nav_msgs`
+- `rtt_ros`
+- `rtt_ros_comm`
+- `rtt_ros_integration`
+- `rtt_ros_msgs`
+- `rtt_rosclock`
+- `rtt_roscomm`
+- `rtt_rosdeployment`
+- `rtt_rosgraph_msgs`
+- `rtt_rosnode`
+- `rtt_rospack`
+- `rtt_rosparam`
+- `rtt_sensor_msgs`
+- `rtt_shape_msgs`
+- `rtt_std_msgs`
+- `rtt_std_srvs`
+- `rtt_stereo_msgs`
+- `rtt_tf`
+- `rtt_tf2_msgs`
+- `rtt_trajectory_msgs`
+- `rtt_visualization_msgs`
+
+Version of package(s) in repository `rtt_ros_integration`:
+
+- upstream repository: https://github.com/orocos/rtt_ros_integration.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `2.10.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.0`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.20.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## rtt_ros_integration (lunar) - 2.9.2-1
 
 The packages in the `rtt_ros_integration` repository were released into the `lunar` distro by running `/usr/bin/bloom-release --rosdistro lunar rtt_ros_integration` on `Thu, 16 May 2019 12:57:11 -0000`
