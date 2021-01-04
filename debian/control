@@ -1,0 +1,12 @@
+Source: ros-noetic-rtt-tf
+Section: misc
+Priority: optional
+Maintainer: Orocos Developers <orocos-dev@orocos.org>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin, ros-noetic-rtt, ros-noetic-rtt-geometry-msgs, ros-noetic-rtt-roscomm, ros-noetic-rtt-tf2-msgs, ros-noetic-tf, ros-noetic-tf2
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rtt-tf
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-rtt, ros-noetic-rtt-geometry-msgs, ros-noetic-rtt-roscomm, ros-noetic-rtt-tf2-msgs, ros-noetic-tf, ros-noetic-tf2
+Description: This package contains the components of the rtt_tf package
