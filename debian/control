@@ -1,0 +1,12 @@
+Source: ros-noetic-rtt-ros
+Section: misc
+Priority: optional
+Maintainer: Orocos Developers <orocos-dev@orocos.org>
+Build-Depends: debhelper (>= 9.0.0), libxml2-dev, ros-noetic-catkin, ros-noetic-ocl, ros-noetic-roslib, ros-noetic-rospack, ros-noetic-rostime, ros-noetic-rtt
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rtt-ros
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxml2-dev, ros-noetic-ocl, ros-noetic-roslib, ros-noetic-rospack, ros-noetic-rostime, ros-noetic-rtt
+Description: This package provides an RTT plugin to add a ROS node to the RTT process, as well as several wrapper scripts to enable roslaunching of orocos programs.
