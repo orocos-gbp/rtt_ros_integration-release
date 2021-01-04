@@ -1,0 +1,12 @@
+Source: ros-noetic-rtt-rosclock
+Section: misc
+Priority: optional
+Maintainer: Orocos Developers <orocos-dev@orocos.org>
+Build-Depends: debhelper (>= 9.0.0), libxml2-dev, ros-noetic-catkin, ros-noetic-cmake-modules, ros-noetic-ocl, ros-noetic-roscpp, ros-noetic-rospack, ros-noetic-rostime, ros-noetic-rtt, ros-noetic-rtt-rosgraph-msgs
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rtt-rosclock
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxml2-dev, ros-noetic-cmake-modules, ros-noetic-ocl, ros-noetic-roscpp, ros-noetic-rospack, ros-noetic-rostime, ros-noetic-rtt, ros-noetic-rtt-rosgraph-msgs
+Description: This package provides an RTT plugin to access different time measurements on a realtime host.
