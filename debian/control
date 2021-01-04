@@ -1,0 +1,12 @@
+Source: ros-noetic-rtt-actionlib
+Section: misc
+Priority: optional
+Maintainer: Orocos Developers <orocos-dev@orocos.org>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-actionlib, ros-noetic-actionlib-msgs, ros-noetic-catkin, ros-noetic-roscpp, ros-noetic-rtt-actionlib-msgs, ros-noetic-rtt-ros, ros-noetic-rtt-rosclock, ros-noetic-rtt-roscomm
+Homepage: http://ros.org/wiki/rtt_ros_integration
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rtt-actionlib
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-actionlib, ros-noetic-actionlib-msgs, ros-noetic-roscpp, ros-noetic-rtt-actionlib-msgs, ros-noetic-rtt-ros, ros-noetic-rtt-rosclock, ros-noetic-rtt-roscomm
+Description: The rtt_actionlib package
