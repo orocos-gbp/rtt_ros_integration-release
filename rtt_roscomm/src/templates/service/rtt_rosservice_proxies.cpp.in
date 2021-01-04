@@ -7,10 +7,12 @@
 #include <rtt_roscomm/rtt_rosservice_proxy.h>
 
 ////////////////////////////////////////////////////////////////////////////////
-@ROS_SRV_HEADERS@
+@ROS_SRV_HEADERS@@ROS_SRV_EXTRA_HEADERS@
 ////////////////////////////////////////////////////////////////////////////////
 
 namespace rtt_@ROSPACKAGE@_ros_service_proxies { 
+
+  using namespace rtt_roscomm;
 
   bool registerROSServiceProxies() {
     // Get the ros service registry service
